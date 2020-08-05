@@ -293,7 +293,7 @@ public class QueryComponent extends SearchComponent
           SchemaField schemaField = schema.getField(field);
           if (schemaField.getType().isTokenized() && (schemaField.getType() instanceof SortableTextField) == false) {
             throw new SolrException(SolrException.ErrorCode.BAD_REQUEST, String.format(Locale.ROOT,
-                "Sorting on a tokenized field that is not a SortableTextField is not supported in cloud mode."));
+                "Sorting on the tokenized field '%s' that is not a SortableTextField is not supported in cloud mode.", field.getName()));
           }
         }
       }
